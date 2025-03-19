@@ -3,10 +3,13 @@ from data_structures.queue import Queue
 
 
 def search(args):
-    bt = BinaryTree
+    bt = BinaryTree()
+    print("building the tree...")
     bt.create_from_file(args.file)
+    print("tree built...")
 
     if args.order == "level-order":
+        print("searching the tree...")
         target = args.word
 
         if bt.root.data == target:
