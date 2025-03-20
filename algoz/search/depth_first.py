@@ -15,6 +15,20 @@ def pre_order_search(target, root):
     return False
 
 
+def post_order_search(target, root):
+    if root:
+        if post_order_search(target, root.left):
+            return True
+
+        if post_order_search(target, root.right):
+            return True
+
+        if root.data == target:
+            return True
+
+    return False
+
+
 def search(args):
     bt = BinaryTree()
     print("building the tree...")
@@ -30,3 +44,17 @@ def search(args):
             print("Word found!")
         else:
             print("Word not found :(")
+
+        return
+
+    if args.order == "post-order":
+        print("searching the tree...")
+
+        target = args.word
+
+        if post_order_search(target, bt.root):
+            print("Word found!")
+        else:
+            print("Word not found :(")
+
+        return
