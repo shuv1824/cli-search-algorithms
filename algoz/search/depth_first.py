@@ -29,6 +29,20 @@ def post_order_search(target, root):
     return False
 
 
+def in_order_search(target, root):
+    if root:
+        if in_order_search(target, root.left):
+            return True
+
+        if root.data == target:
+            return True
+
+        if in_order_search(target, root.right):
+            return True
+
+        return False
+
+
 def search(args):
     bt = BinaryTree()
     print("building the tree...")
@@ -58,3 +72,17 @@ def search(args):
             print("Word not found :(")
 
         return
+
+    if args.order == "in-order":
+        print("searching the tree...")
+
+        target = args.word
+
+        if in_order_search(target, bt.root):
+            print("Word found!")
+        else:
+            print("Word not found :(")
+
+        return
+
+    print("depth-first-search can only be used with --order 'pre-order', 'post-order', 'in-order'")
