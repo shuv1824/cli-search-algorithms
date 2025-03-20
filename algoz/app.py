@@ -1,6 +1,6 @@
 import argparse
 
-from search import breadth_first
+from search import breadth_first, depth_first
 
 
 def main():
@@ -46,9 +46,9 @@ def main():
     args = parser.parse_args()
 
     # depth first search
-    # if args.search_algorithm == "depth-first-search":
-    #     depth_first.search(args)
-    #     return
+    if args.search_algorithm == "depth-first-search":
+        depth_first.search(args)
+        return
 
     # breadth first search
     if args.search_algorithm == "breadth-first-search":
