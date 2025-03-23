@@ -2,7 +2,16 @@ from data_structures.binary_tree import BinaryTree
 
 
 def binary_search(target, root):
-    pass
+    if root:
+        if int(root.data) == int(target):
+            return True
+
+        if int(root.data) < int(target):
+            if binary_search(target, root.right):
+                return True
+
+        if binary_search(target, root.left):
+            return True
 
 
 def search(args):
